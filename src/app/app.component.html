@@ -1,14 +1,19 @@
 <h1>
   principal
 
+  <pre *ngIf="serviceArray">
+    valores api:
+    {{serviceArray | json }}
+  </pre>
+
   <pre>
     valores correctos:
-    {{correctValues}}
+    {{correctValues | json}}
   </pre>
 
   <pre>
     Valores incorrectos:
-    {{wrongValues}}
+    {{wrongValues | json}}
   </pre>
 </h1>
 

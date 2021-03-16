@@ -6,15 +6,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddCodesComponent } from './components/add-codes/add-codes.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ArticlesComponent } from './components/articles/articles.component'
 @NgModule({
   declarations: [
     AppComponent,
-    AddCodesComponent
+    AddCodesComponent,
+    ArticlesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
