@@ -1,22 +1,63 @@
-<h1>
-  principal
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1">Interview David Santos</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <pre *ngIf="serviceArray">
-    valores api:
-    {{serviceArray | json }}
-  </pre>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/articles">Articulos <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
 
-  <pre>
-    valores correctos:
-    {{correctValues | json}}
-  </pre>
+    <div class="row">
+      
+      <div class="col">
+        <div class="card">
+          <div class="card-header bg-success">
+            Valeres en Api:
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let itemService of serviceArray">{{itemService}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-header bg-info">
+            Valeres en Correctos:
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let itemCorrect of correctValues">{{itemCorrect}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-header bg-warning">
+            Valeres en Incorrectos:
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let itemWrong of wrongValues">{{itemWrong}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</nav>
 
-  <pre>
-    Valores incorrectos:
-    {{wrongValues | json}}
-  </pre>
-</h1>
 
-<app-add-codes (codes)="checkArticleCodes($event)"></app-add-codes>
+<main class="container">
 
-<router-outlet></router-outlet>
+  <div class="jumbotron">
+    
+    <app-add-codes (codes)="checkArticleCodes($event)"></app-add-codes>
+
+  </div>
+
+  
+  <router-outlet></router-outlet>
+
+</main>

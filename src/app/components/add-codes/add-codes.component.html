@@ -1,5 +1,17 @@
-<form action="">
-  <label for="inputValue">Añadir artículos por código</label>
-  <input type="text"  placeholder="Ej: 80265472, 98564528..." name="inputValue" id="inputValue" [(ngModel)]="inputValue" />
-  <input type="button" value="Añadir" (click)="sendData()" />
+<form>
+
+  <div class="form-group">
+
+    <label for="inputValue">Añadir artículos por código 
+
+      <button type="button" class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" data-placement="top" title="Ingresa valores separados por coma.">
+        &#9432;
+      </button>
+
+    </label>
+    <input class="form-control" type="text"  placeholder="Ej: 80265472, 98564528..." name="inputValue" id="inputValue" [(ngModel)]="inputValue" />
+
+  </div>
+
+  <input class="btn btn-primary" type="button" value="Añadir" (click)="sendData()" />
 </form>

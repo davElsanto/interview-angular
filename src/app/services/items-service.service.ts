@@ -6,7 +6,9 @@ import { EventEmitter, Injectable, Output } from '@angular/core';
 export class ItemsServiceService {
   private correctValues: Array<string>;
   private wrongValues: Array<string>;
-  public changeValues: EventEmitter<Object> = new EventEmitter();
+  public changeValuesOk: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
+  public changeValuesWrong: EventEmitter<Array<string>> = new EventEmitter<Array<string>>();
+
 
   constructor() {
     this.correctValues = [];
@@ -15,11 +17,7 @@ export class ItemsServiceService {
 
   setCorrectValues(codes: Array<string>): void {
     this.correctValues = codes
-    this.changeValues.emit(
-      {
-        value: 1,
-        codes: codes
-    })
+    this.changeValuesOk.emit(codes)
   }
 
   getCorrectValues(): Array<string> {
@@ -28,11 +26,7 @@ export class ItemsServiceService {
 
   setWrongValues(codes: Array<string>): void {
     this.wrongValues = codes;
-    this.changeValues.emit(
-      {
-        value: 2,
-        codes: codes
-    })
+    this.changeValuesWrong.emit(codes)
   }
 
   getWrongValues(): Array<string> {

@@ -9,18 +9,21 @@ import { ItemsServiceService } from 'src/app/services/items-service.service';
 export class ArticlesComponent implements OnInit {
 
   okValues: Array<string>;
+  wrongValues: Array<string>;
   constructor(
     public itemsService: ItemsServiceService
   ) { 
     this.okValues = []
+    this.wrongValues = []
   }
 
   ngOnInit(): void {
-    this.itemsService.changeValues.subscribe(
-      data => {
-        console.log(data)
+    this.itemsService.changeValuesOk.subscribe(
+      data => this.okValues = data
+    )
 
-      }
+    this.itemsService.changeValuesWrong.subscribe(
+      data => this.wrongValues = data
     )
   }
 

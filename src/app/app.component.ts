@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ApiServiceService } from './services/api-service.service';
 import { ItemsServiceService } from './services/items-service.service';
 
+declare var $:any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,6 +28,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    $('[data-toggle="tooltip"]').tooltip();
+
     this.apiService.getArticleCode$().subscribe(data => {
       for (let key in data)
         if (key == 'data') this.serviceArray.push(...data[key]);

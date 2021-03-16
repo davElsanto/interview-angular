@@ -32,9 +32,6 @@ export class AddCodesComponent implements OnInit {
         regex.test(element)? okValues.push(element):wrongValues.push(element)
       );
 
-    console.log("ok values : ", okValues)
-    console.log("bad values: ",wrongValues)
-
     this.codes.emit([okValues, wrongValues])
   }
 
